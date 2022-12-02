@@ -88,4 +88,13 @@ def invert(data):
 
 print(invert(100))
 
+'''
+Escreva uma função chamada 'format_number' que receba um número não negativo como único parâmetro.
+Sua função deve adicionar vírgulas como mil separadores. Por exemplo, chamar format_number(1000000) deve retornar "1,000,000". 
+'''
+
+def format_number(data):
+    return '{:,}'.format(data)
+
+print(format_number(1000000))
 
