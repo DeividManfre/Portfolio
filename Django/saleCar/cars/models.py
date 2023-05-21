@@ -1,5 +1,16 @@
 from django.db import models
 
+class Car_brand(models.Model):
+    name_brand = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = ("name_brand")
+        verbose_name_plural = ("name_brand")
+
+    def __str__(self):
+        return self.color
+
+
 class Color(models.Model):
     color = models.CharField(max_length=50)
 
@@ -20,6 +31,7 @@ class Car(models.Model):
     complete = models.CharField(max_length=1, choices=COMPLETE, blank=False, null=False,default='N')
     yar = models.DateField(auto_now=False, auto_now_add=False)
     color = models.ForeignKey(Color, on_delete=models.RESTRICT)
+    name_brand = models.ForeignKey(Car_brand, on_delete=models.RESTRICT)
     license_plate = models.IntegerField()
 
     class Meta:
