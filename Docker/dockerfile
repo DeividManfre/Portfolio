@@ -1,0 +1,20 @@
+# Use a imagem base do Python
+FROM python:3.9
+
+# Define o diretório de trabalho no contêiner
+WORKDIR /app
+
+# Copie o arquivo requirements.txt para o contêiner
+COPY requirements.txt .
+
+# Instale as dependências do Flask
+RUN pip install -r requirements.txt
+
+# Copie o código-fonte do aplicativo para o contêiner
+COPY . .
+
+# Exponha a porta do Flask
+EXPOSE 5000
+
+# Defina o comando para iniciar o aplicativo Flask
+CMD ["python", "app.py"]
